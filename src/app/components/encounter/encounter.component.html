@@ -1,0 +1,16 @@
+<nb-card>
+    <nb-card-header>{{encounter.encounterName}}</nb-card-header>
+      <nb-list>
+        <nb-list-item *ngFor="let entity of encounter.entities">
+          <nb-layout-column>{{ entity.name }}</nb-layout-column>
+          <nb-layout-column>
+            Initiative
+            <input type="text" nbInput placeholder="Initiative Score" fieldSize="medium" [value]="entity.initiativeScore">
+          </nb-layout-column>
+          <nb-layout-column>
+            Armour Class
+            <input type="text" nbInput placeholder="Armour Class" fieldSize="medium" [value]="entity.armorClass">
+          </nb-layout-column>
+        </nb-list-item>
+      </nb-list>
+  </nb-card>

@@ -1,0 +1,12 @@
+@use 'themes' as *;
+
+@use '@nebular/theme/styles/globals' as *;
+
+@include nb-install() {
+  @include nb-theme-global();
+};
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+}

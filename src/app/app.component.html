@@ -1,0 +1,15 @@
+<nb-layout>
+
+  <nb-layout-header class="header" fixed>
+    <button nbButton status="primary" size="medium" (click)="toggle()">
+      <nb-icon icon="menu-outline"></nb-icon>
+    </button>
+    <h1>Encounter Manager</h1>
+  </nb-layout-header>
+  <nb-sidebar><a [routerLink]="'/'">Home</a></nb-sidebar>
+
+  <nb-layout-column>
+      <app-encounter></app-encounter>
+  </nb-layout-column>
+
+</nb-layout>
