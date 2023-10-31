@@ -1,16 +1,38 @@
-<nb-card>
-    <nb-card-header>{{encounter.encounterName}}</nb-card-header>
-      <nb-list>
-        <nb-list-item *ngFor="let entity of encounter.entities">
-          <nb-layout-column>{{ entity.name }}</nb-layout-column>
-          <nb-layout-column>
-            Initiative
-            <input type="text" nbInput placeholder="Initiative Score" fieldSize="medium" [value]="entity.initiativeScore">
-          </nb-layout-column>
-          <nb-layout-column>
-            Armour Class
-            <input type="text" nbInput placeholder="Armour Class" fieldSize="medium" [value]="entity.armorClass">
-          </nb-layout-column>
-        </nb-list-item>
-      </nb-list>
+<nb-card *ngIf="formGroup">
+    <nb-card-header>
+        <label>{{encounter.encounterName}}</label>
+        <button nbButton class="sort-button" status="primary" size="small" (click)="sortEncounter()">
+        <nb-icon icon="arrow-upward-outline"></nb-icon>
+        </button>
+    </nb-card-header>
+    <form [formGroup]="formGroup">
+        <ng-container formArrayName="encounterFormArray">
+            <nb-list>
+                <nb-list-item *ngFor="let encounterForm of encounterFormArray.controls; let i = index">
+                    <ng-container [formGroup]="encounterForm">
+                        <nb-layout-column>
+                            Name
+                            <input type="text" nbInput placeholder="Name" fieldSize="medium" formControlName="name">
+                        </nb-layout-column>
+                        <nb-layout-column>
+                            Initiative
+                            <input type="text" nbInput placeholder="Initiative Score" fieldSize="medium" formControlName="initiativeScore">
+                        </nb-layout-column>
+                        <nb-layout-column>
+                            Armour Class
+                            <input type="text" nbInput placeholder="Armour Class" fieldSize="medium" formControlName="armorClass">
+                        </nb-layout-column>
+                        <nb-layout-column class="delete-column">
+                            <button nbButton class="sort-button" status="primary" size="medium" (click)="deleteForm(i)">
+                                <nb-icon icon="trash-2-outline"></nb-icon>
+                            </button>
+                        </nb-layout-column>
+                    </ng-container>
+                </nb-list-item>
+                <nb-list-item class="add-row" (click)="addForm()">
+                    <p><nb-icon icon="plus-outline"></nb-icon> Add an entity</p>
+                </nb-list-item>
+            </nb-list>
+        </ng-container>
+    </form>
   </nb-card>

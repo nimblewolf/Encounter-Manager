@@ -1,0 +1,33 @@
+nb-card {
+    nb-card-header {
+        label {
+            font-size: 18px;
+            padding-top: 5px;
+            display: inline-block;
+        }
+        button.sort-button{
+            float:right;
+        }    
+    }
+    form {
+        nb-list {
+            nb-list-item {
+                &.add-row {
+                    p {
+                        width: 100%;
+                        text-align: center;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                nb-layout-column {
+                    &.delete-column {
+                        justify-content: right;
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+}

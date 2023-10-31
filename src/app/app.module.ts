@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbButtonModule, NbCardModule, NbListModule, NbInputModule, NbSidebarModule, NbSidebarService, NbIconModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { EncounterComponent } from './components/encounter/encounter.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EncounterComponent } from './components/encounter/encounter.component';
     NbListModule,
     NbInputModule,
     NbSidebarModule,
+    ReactiveFormsModule
   ],
   providers: [
     NbSidebarService
