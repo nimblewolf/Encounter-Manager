@@ -16,15 +16,21 @@ export class EncounterComponent implements OnInit {
         entities: [{
         name: 'Test mob',
         armorClass: 15,
-        initiativeScore: 12
+        initiativeScore: 12,
+        currentHitPoints: 10,
+        totalHitPoints: 10
         },{
         name: 'Test mob 2',
         armorClass: 15,
-        initiativeScore: 9
+        initiativeScore: 9,
+        currentHitPoints: 10,
+        totalHitPoints: 10
         },{
         name: 'Test mob 3',
         armorClass: 15,
-        initiativeScore: 17
+        initiativeScore: 17,
+        currentHitPoints: 10,
+        totalHitPoints: 10
         }]
     }
 
@@ -35,6 +41,8 @@ export class EncounterComponent implements OnInit {
             name: FormControl<string | null>;
             armorClass: FormControl<number| null>;
             initiativeScore: FormControl<number | null>;
+            currentHitPoints: FormControl<number | null>;
+            totalHitPoints: FormControl<number | null>;
         }>>;
     }
     
@@ -48,6 +56,8 @@ export class EncounterComponent implements OnInit {
                 name: new FormControl(entity.name, []),
                 armorClass: new FormControl(entity.armorClass, []),
                 initiativeScore: new FormControl(entity.initiativeScore, []),
+                currentHitPoints: new FormControl<number| null>(entity.currentHitPoints, []),
+                totalHitPoints: new FormControl(entity.totalHitPoints, []),
             })
         })
         const formArray = this.fb.array(formgroups);
@@ -61,6 +71,8 @@ export class EncounterComponent implements OnInit {
             name: new FormControl<string|null>(null, []),
             armorClass: new FormControl<number| null>(null, []),
             initiativeScore: new FormControl<number| null>(null, []),
+            currentHitPoints: new FormControl<number| null>(null, []),
+            totalHitPoints: new FormControl<number| null>(null, []),
         })
         this.encounterFormArray.push(newForm);
     }

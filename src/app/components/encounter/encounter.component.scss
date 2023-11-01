@@ -26,6 +26,14 @@ nb-card {
                         justify-content: right;
                         display: flex;
                     }
+                    div.form-field-container {
+                        label {
+                            display: block;
+                        }
+                    }
+                    input.hp {
+                        max-width: 200px;
+                    }
                 }
             }
         }

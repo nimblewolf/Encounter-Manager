@@ -11,16 +11,34 @@
                 <nb-list-item *ngFor="let encounterForm of encounterFormArray.controls; let i = index">
                     <ng-container [formGroup]="encounterForm">
                         <nb-layout-column>
-                            Name
-                            <input type="text" nbInput placeholder="Name" fieldSize="medium" formControlName="name">
+                            <div class="form-field-container">
+                                <label>Name</label>
+                                <input type="text" nbInput placeholder="Name" fieldSize="medium" formControlName="name">
+                            </div>
                         </nb-layout-column>
                         <nb-layout-column>
-                            Initiative
-                            <input type="text" nbInput placeholder="Initiative Score" fieldSize="medium" formControlName="initiativeScore">
+                            <div class="form-field-container">
+                                <label>Initiative</label>
+                                <input type="text" nbInput placeholder="Initiative Score" fieldSize="medium" formControlName="initiativeScore">
+                            </div>
                         </nb-layout-column>
                         <nb-layout-column>
-                            Armour Class
-                            <input type="text" nbInput placeholder="Armour Class" fieldSize="medium" formControlName="armorClass">
+                            <div class="form-field-container">
+                                <label>Armour Class</label>
+                                <input type="text" nbInput placeholder="Armour Class" fieldSize="medium" formControlName="armorClass">
+                            </div>
+                        </nb-layout-column>
+                        <nb-layout-column>
+                            <div class="form-field-container">
+                                <label>Current HP</label>
+                                <input class="hp" type="text" nbInput placeholder="Current HP" fieldSize="medium" formControlName="currentHitPoints">
+                            </div>
+                        </nb-layout-column>
+                        <nb-layout-column>
+                            <div class="form-field-container">
+                                <label>Total HP</label>
+                                <input class="hp"  type="text" nbInput placeholder="Total HP" fieldSize="medium" formControlName="totalHitPoints">
+                            </div>
                         </nb-layout-column>
                         <nb-layout-column class="delete-column">
                             <button nbButton class="sort-button" status="primary" size="medium" (click)="deleteForm(i)">
