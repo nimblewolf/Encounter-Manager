@@ -14,21 +14,21 @@ export class EncounterComponent implements OnInit {
     encounter: Encounter = {
         encounterName: 'Encounter Name 1',
         entities: [{
-        name: 'Test mob',
+        name: 'Mob1',
         armorClass: 15,
-        initiativeScore: 12,
-        currentHitPoints: 10,
-        totalHitPoints: 10
+        initiativeScore: 1,
+        currentHitPoints: 5,
+        totalHitPoints: 5
         },{
-        name: 'Test mob 2',
+        name: 'Mob2',
         armorClass: 15,
-        initiativeScore: 9,
-        currentHitPoints: 10,
-        totalHitPoints: 10
+        initiativeScore: 2,
+        currentHitPoints: 20,
+        totalHitPoints: 20
         },{
-        name: 'Test mob 3',
+        name: 'Mob3',
         armorClass: 15,
-        initiativeScore: 17,
+        initiativeScore: 3,
         currentHitPoints: 10,
         totalHitPoints: 10
         }]
@@ -81,16 +81,28 @@ export class EncounterComponent implements OnInit {
         this.encounterFormArray.removeAt(index)
     }
 
+    copyEntity(index: number) {
+        const formToBeCopied = this.encounterFormArray.controls[index];
+        const newForm = this.fb.group({
+            name: new FormControl<string|null>(formToBeCopied.controls.name?.value, []),
+            armorClass: new FormControl<number| null>(formToBeCopied.controls.armorClass?.value, []),
+            initiativeScore: new FormControl<number| null>(formToBeCopied.controls.initiativeScore?.value, []),
+            currentHitPoints: new FormControl<number| null>(formToBeCopied.controls.currentHitPoints?.value, []),
+            totalHitPoints: new FormControl<number| null>(formToBeCopied.controls.totalHitPoints?.value, []),
+        })
+        this.encounterFormArray.push(newForm);
+    }
+
     /**
      * Sort encounter by initiative scores in ascending order
      */
     sortEncounter() {
         this.encounterFormArray.controls.sort((entity1, entity2) => {
-            if((entity1.controls.initiativeScore.value || 0) > (entity2.controls.initiativeScore.value || 0)) {
+            if(+(entity1.controls?.initiativeScore?.value || 0) > +(entity2.controls?.initiativeScore?.value || 0)) {
                 return -1;
             }
 
-            if((entity1.controls.initiativeScore.value || 0) < (entity2.controls.initiativeScore.value || 0)) {
+            if(+(entity1.controls?.initiativeScore?.value || 0) < +(entity2.controls?.initiativeScore?.value || 0)) {
                 return 1;
             }
 

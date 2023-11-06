@@ -41,7 +41,10 @@
                             </div>
                         </nb-layout-column>
                         <nb-layout-column class="delete-column">
-                            <button nbButton class="sort-button" status="primary" size="medium" (click)="deleteForm(i)">
+                            <button nbButton class="sort-button" status="primary" size="medium" (click)="copyEntity(i)">
+                                <nb-icon icon="clipboard-outline"></nb-icon>
+                            </button>
+                            <button nbButton class="sort-button" status="danger" size="medium" (click)="deleteForm(i)">
                                 <nb-icon icon="trash-2-outline"></nb-icon>
                             </button>
                         </nb-layout-column>

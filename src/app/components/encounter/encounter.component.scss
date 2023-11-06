@@ -12,6 +12,7 @@ nb-card {
     form {
         nb-list {
             nb-list-item {
+                padding: 0px;
                 &.add-row {
                     p {
                         width: 100%;
@@ -22,9 +23,13 @@ nb-card {
                     }
                 }
                 nb-layout-column {
+                    padding-top: 10px;
                     &.delete-column {
                         justify-content: right;
                         display: flex;
+                        button {
+                            margin-right: 5px;
+                        }
                     }
                     div.form-field-container {
                         label {
