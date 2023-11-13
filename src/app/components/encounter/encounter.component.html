@@ -2,7 +2,10 @@
     <nb-card-header>
         <label>{{encounter.encounterName}}</label>
         <button nbButton class="sort-button" status="primary" size="small" (click)="sortEncounter()">
-        <nb-icon icon="arrow-upward-outline"></nb-icon>
+            <nb-icon icon="arrow-upward-outline"></nb-icon>
+        </button>
+        <button nbButton class="sort-button" status="primary" size="small" (click)="generateInitiativeScoresForNonPlayers()">
+            <nb-icon icon="shuffle-outline"></nb-icon>
         </button>
     </nb-card-header>
     <form [formGroup]="formGroup">
@@ -16,10 +19,16 @@
                                 <input type="text" nbInput placeholder="Name" fieldSize="medium" formControlName="name">
                             </div>
                         </nb-layout-column>
-                        <nb-layout-column>
+                        <nb-layout-column class="short-column">
                             <div class="form-field-container">
                                 <label>Initiative</label>
                                 <input type="text" nbInput placeholder="Initiative Score" fieldSize="medium" formControlName="initiativeScore">
+                            </div>
+                        </nb-layout-column>
+                        <nb-layout-column class="short-column">
+                            <div class="form-field-container">
+                                <label>Modifier</label>
+                                <input type="text" nbInput placeholder="Initiative Score" fieldSize="medium" formControlName="initiativeModifier">
                             </div>
                         </nb-layout-column>
                         <nb-layout-column>
@@ -38,6 +47,11 @@
                             <div class="form-field-container">
                                 <label>Total HP</label>
                                 <input class="hp"  type="text" nbInput placeholder="Total HP" fieldSize="medium" formControlName="totalHitPoints">
+                            </div>
+                        </nb-layout-column>
+                        <nb-layout-column>
+                            <div class="form-field-container">
+                                <nb-checkbox status="control" formControlName="isPlayer">Player</nb-checkbox>
                             </div>
                         </nb-layout-column>
                         <nb-layout-column class="delete-column">

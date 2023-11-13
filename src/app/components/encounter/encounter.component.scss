@@ -7,12 +7,14 @@ nb-card {
         }
         button.sort-button{
             float:right;
+            margin-right: 5px;
         }    
     }
     form {
         nb-list {
             nb-list-item {
                 padding: 0px;
+                flex-wrap: wrap;
                 &.add-row {
                     p {
                         width: 100%;
@@ -24,12 +26,25 @@ nb-card {
                 }
                 nb-layout-column {
                     padding-top: 10px;
+                    flex: unset !important;
                     &.delete-column {
                         justify-content: right;
                         display: flex;
                         button {
                             margin-right: 5px;
                         }
+                    }
+                    &.short-column {
+                        max-width: 80px;
+                        padding-left: 0px;
+                        padding-right: 0px;
+                        div.form-field-container {
+                            width: 100%;
+                            input {
+                                width: 100%;
+                            }
+                        }
+
                     }
                     div.form-field-container {
                         label {
